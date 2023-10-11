@@ -1,0 +1,98 @@
+#include<stdio.h>
+/*
+int FRONT = -1;
+int r = -1;
+int queue[100];
+int size;
+int data;
+*/
+void insert(int *q,int *f,int *r,int size,int data)
+{
+
+ printf("\n %d  %d  %d  \n ",*f,*r,size);
+    if(*r == size-1)
+    {
+        printf("Q was full !! \n");
+    }
+    else if(*f == -1)
+    {
+        *f = 0;
+        *r=*r +1;
+        q[*r] = data;
+     //printf("%d",q[r]);
+
+    }
+    else
+    {
+        *r=*r+1;
+        q[*r] = data;
+    }
+    
+    printf("\n %d  %d  %d  %d \n ",*f,*r,size,q[*r]);
+}
+
+void display(int q[],int f,int r)
+{
+    int i;
+    if(r < f || f == -1)
+    {
+        printf("queue was underflow ");
+    }
+    else
+    {
+        for(i=0; i<=r; i++)
+        {
+            printf("%d ",q[i]);
+
+        }
+    }
+}
+
+
+int main()
+{
+    	int choise,data;
+	int f = -1;
+    	int r = -1;
+	int q[100];
+	int size;
+    printf("enter the size of Q: ");
+    scanf("%d",&size);
+    do
+    {
+        printf("1.queue 2.dequeue 4.exit 3.display: ");
+        scanf("%d",&choise);
+
+        switch(choise)
+        {
+        case 1:
+        {
+            printf("enter the data for Q: ");
+            scanf("%d",&data);
+            insert(q,&f,&r,size,data);
+            break;
+        }
+        /*     case 2:
+               {
+                  dequeue();
+                  break;
+               }               */
+        case 3:
+        {
+            display(q,f,r);
+            break;
+        }
+        case 4:
+        {
+            break;
+        }
+        default:
+        {
+            printf("entering wrong choise !!! ");
+        }
+        }
+    }
+    while(choise != 4);
+    return 0;
+
+}

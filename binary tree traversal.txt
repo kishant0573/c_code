@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+struct node *left;
+struct node *right;
+int data;
+
+};
+
+
+void preorder(struct node *p)
+{
+    if(p != NULL)
+    {
+     printf("%d ",p->data);
+     preorder(p->left);
+     preorder(p->right);
+}
+}
+
+void postorder(struct node *p)
+{
+    if(p != NULL)
+    {
+        postorder(p->left);
+
+        postorder(p->right);
+         printf("%d ",p->data);
+    }
+}
+
+void inorder(struct node *p)
+{
+    if(p != NULL)
+    {
+        inorder(p->left);
+        printf("%d ", p->data);
+        inorder(p->right);
+    }
+
+}
+struct node *create(int x)
+{
+  struct node *root = (struct node*)malloc(sizeof(struct node));
+  root->data=x;
+  root->left = NULL;
+  root->right= NULL;
+
+  return root;
+
+}
+
+
+
+int main()
+{
+
+
+  struct node *p = NULL;
+
+       p = create(1);
+       p->left = create(2);
+       p->left->left = create(4);
+       p->left->right = create(5);
+       p->right = create(3);
+       p->right->right = create(6);
+       printf("   pre order: ");
+       preorder(p);
+       printf("\n post order : ");
+       postorder(p);
+       printf("\n in-order : ");
+       inorder(p);
+
+}
+
+
+

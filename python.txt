@@ -1,0 +1,23 @@
+class vehicle:
+    def __init__(self,mileage,cost):
+        self.mileage = mileage
+        self.cost = cost
+
+    def show_vehicle_detail(self):
+        print("mileage of the car is",self.mileage )    
+        print("the cost of the is", self.cost)
+
+class car(vehicle):
+    def __init__(self,mileage,cost,tyre,hp):
+        super().__init__(mileage,cost)
+        self.tyre =tyre
+        self.hp =hp
+
+    def show_car_detail(self):
+        print("i am a car ")    
+        print("no. of tyre are ", self.tyre)
+        print("vlaue of horse power is ", self.hp)
+
+c1 = car(150,10000,4,720)
+c1.show_vehicle_detail()
+c1.show_car_datail()        
